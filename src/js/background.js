@@ -11,8 +11,10 @@ if(jobsStorage.getUnreadJobs().length > 0) {
 }
 
 // initialize config
-config.setIsFetchingEnabled(1);
-config.setPlayNotificationSound(1);
+chrome.runtime.onInstalled.addListener(function() {
+    config.setIsFetchingEnabled(1);
+    config.setPlayNotificationSound(1);
+});
 
 // initialize jobs fetching
 jobsAlarm.create(config.getInterval()); // in production minimum 1 minute
