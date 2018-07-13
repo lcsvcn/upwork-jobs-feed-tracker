@@ -7,6 +7,8 @@ import config from './services/config';
 import styles from './../sass/options.sass';
 import moment from 'moment';
 
+import MarkdownIt  from 'markdown-it'
+
 Vue.filter('timeAgo', value => {
     return moment(value).fromNow();
 });
@@ -78,6 +80,14 @@ new Vue({
             badge.refresh();
         }
     },
+
+    methods: {
+        renderMarkdown: function(text) {
+           return MarkdownIt({breaks: true}).render(text);
+        }
+    },
+
+
     watch: {
         'fetchInterval': function(value) {
             config.setInterval(value);

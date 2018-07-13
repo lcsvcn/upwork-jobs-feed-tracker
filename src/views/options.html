@@ -71,13 +71,15 @@
                 </p>
                 <p class="description tgrey tmedium">
                     <template v-if="job.description !== job.description.substr(0, 200)">
-                        <template v-if="job.showfull === true">{{ job.description }}</template>
+                        <template v-if="job.showfull === true">
+                            <div v-html="renderMarkdown(job.description)"></div>
+                        </template>
                         <template v-else>
                             {{ job.description.substr(0, 200) }}...<span class="link" v-on:click="job.showfull = true"> more</span>
                         </template>
                     </template>
                     <template v-else>
-                        {{ job.description }}
+                        <div v-html="renderMarkdown(job.description)"></div>
                     </template>
                 </p>
                 <p class="skills">
