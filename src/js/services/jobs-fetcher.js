@@ -51,7 +51,7 @@ export default {
                 chrome.notifications.create('freshJobs-' + ++notifications, {
                     type: 'basic',
                     iconUrl: './notification-icon.png',
-                    title: 'You got ' + freshJobs.length + ' new jobs!',
+                    title: 'There are ' + freshJobs.length + ' new jobs available!',
                     message: "Don't miss your chance",
                     buttons: [{
                         title: "Click here to take a look"
